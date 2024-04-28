@@ -27,12 +27,10 @@
                         class="form-control @error('email') is-invalid @enderror"
                         name="email"
                         tabindex="1"
-                        required
-                        autofocus
                         value="{{ old('email')}}">
                         @error('email')
                         <div class="invalid-feedback">
-                            {{$message}}
+                            {{ $message }}
                         </div>
                         @enderror
 
