@@ -14,7 +14,7 @@
             <div class="section-header">
                 <h1>Users</h1>
                 <div class="section-header-button">
-                    <a href="features-post-create.html"
+                    <a href="{{route('users.create')}}"
                         class="btn btn-primary">Add New</a>
                 </div>
                 <div class="section-header-breadcrumb">
@@ -37,11 +37,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="float-right">
-                                    <form>
+                                    <form method="GET" action="{{route('users.index')}}">
                                         <div class="input-group">
                                             <input type="text"
                                                 class="form-control"
-                                                placeholder="Search">
+                                                placeholder="Search" name="name">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
