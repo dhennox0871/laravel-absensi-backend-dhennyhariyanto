@@ -58,8 +58,8 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
-                                                <th>Create-at</th>
                                                 <th>Role</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -72,10 +72,11 @@
                                                 </td>
                                                 <td>{{$user->phone}}
                                                 </td>
-                                                <td>{{$user->created_at}}</td>
                                                 <td>
                                                     {{$user->role}}
                                                 </td>
+                                                <td><a href="{{ route('users.edit',$user->id)}}"><button class="btn btn-success">Edit</button></a>
+                                                    <a href="{{ route('users.destroy',$user->id)}}"><button class="btn btn-danger">Delete</button></a></td>
                                             </tr>
                                             @endforeach
 

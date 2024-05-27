@@ -31,9 +31,9 @@
             </div>
 
             <div class="section-body">
-                <h2 class="section-title">New User</h2>
+                <h2 class="section-title">Edit User</h2>
                 <p class="section-lead">We provide advanced input fields for users.</p>
-                <form method="POST" action="{{ route('users.store')}}">
+                <form method="POST" action="{{ route('users.update',$user)}}">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-6">
@@ -48,7 +48,7 @@
                                     <input type="text"
                                         class="form-control @error('name') is-invalid
 
-                                        @enderror" name="name">
+                                        @enderror" name="name" value="{{$user->name}}">
                                         @error('name')
                                             </div class="invalid-feedback">
                                                 {{ $message }}
@@ -66,7 +66,7 @@
                                         <input type="email"
                                             class="form-control @error('email') is invalid
 
-                                            @enderror" name="email">
+                                            @enderror" name="email" value="{{$user->email}}">
                                             @error('email')
                                             </div class="invalid-feedback">
                                                 {{ $message }}
@@ -99,7 +99,7 @@
                                     <input type="text"
                                         class="form-control @error('phone') is-invalid
 
-                                        @enderror" name="phone">
+                                        @enderror" name="phone" value="{{$user->phone}}">
                                         @error('phone')
                                             </div class="invalid-feedback">
                                                 {{ $message }}
@@ -119,9 +119,15 @@
                                 <div class="form-group">
                                     <label>Default Select</label>
                                     <select class="form-control" name="role">
-                                        <option value="admin">Admin</option>
-                                        <option value="spv">SPV</option>
-                                        <option value="user">User</option>
+                                        <option value="admin" @if ($user->role == 'admin') selected
+
+                                        @endif>Admin</option>
+                                        <option value="spv" @if ($user->role == 'spv') selected
+
+                                            @endif>SPV</option>
+                                        <option value="user" @if ($user->role == 'user') selected
+
+                                            @endif>User</option>
                                     </select>
                                 </div>
 
