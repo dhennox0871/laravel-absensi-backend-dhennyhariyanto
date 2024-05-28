@@ -24,6 +24,8 @@
                 </div>
             </div>
             <div class="section-body">
+
+
                 <h2 class="section-title">Users</h2>
                 <p class="section-lead">
                     You can manage all users, such as create new, editing, deleting and more.
@@ -59,7 +61,7 @@
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Role</th>
-                                                <th>Action</th>
+                                                <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,8 +77,16 @@
                                                 <td>
                                                     {{$user->role}}
                                                 </td>
-                                                <td><a href="{{ route('users.edit',$user->id)}}"><button class="btn btn-success">Edit</button></a>
-                                                    <a href="{{ route('users.destroy',$user->id)}}"><button class="btn btn-danger">Delete</button></a></td>
+                                                <td><a href="{{ route('users.edit',$user->id)}}">
+                                                    <button class="btn btn-success">Edit</button></a>
+                                                </td>
+                                                <td>
+                                                    <form action="{{ route('users.destroy',$user->id)}}" method="POST">
+                                                        <input type="hidden" value="DELETE" name="_method">
+                                                        <input type="hidden" value="{{ csrf_token()}}" name="_token">
+                                                        <button class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                             @endforeach
 

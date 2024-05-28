@@ -24,7 +24,7 @@ class UserController extends Controller
     public function store(Request $request){
         $request->validate(
             ['name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'password' => 'required|min:8',
             'role' =>'required',
             ]
@@ -44,6 +44,36 @@ class UserController extends Controller
 
     public function edit(User $user){
         return view('pages.users.edit',compact('user'));
+    }
+
+    public function update(Request $request,User $user){
+        $request->validate(
+            ['name' => 'required',
+            'email' => 'required|email',
+            'role' =>'required',
+            ]
+        );
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'role' => $request->role,
+        ]);
+
+        if($request->password){
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return redirect()->route('users.index')->with('susscess','User updated successfully');
+
+    }
+
+    public function destroy(User $user){
+        $user->delete();
+        return redirect()->route('users.index')->with('susscess','User deleted successfully');
     }
 
 }

@@ -33,8 +33,9 @@
             <div class="section-body">
                 <h2 class="section-title">Edit User</h2>
                 <p class="section-lead">We provide advanced input fields for users.</p>
-                <form method="POST" action="{{ route('users.update',$user)}}">
+                <form action="{{ route('users.update',$user)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-6">
 
