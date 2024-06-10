@@ -15,6 +15,10 @@
                 <a class="nav-link"
                     href="{{ url('users') }}">Management Users</a>
             </li>
+            <li class='{{ Request::is('companies/1') ? 'active' : '' }}'>
+                <a class="nav-link"
+                    href="{{ url('companies',1) }}">Company Profile</a>
+            </li>
 
         </ul>
 
