@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer text-right">
-                                    <a href=""><button class="btn btn-primary">Edit Profile</button></a>
+                                    <a href=#><button class="btn btn-primary">Edit Profile</button></a>
                                 </div>
 
                         </div>
