@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attendance;
 use App\Models\Company;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -42,6 +43,6 @@ class DatabaseSeeder extends Seeder
             'radius_km'=>'1'
         ]);
 
-
+        Attendance::factory(10)->create();
     }
 }

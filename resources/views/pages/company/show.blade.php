@@ -60,12 +60,14 @@
                                             <label>Longitude</label>
                                             <input type="number"
                                                 class="form-control"
+                                                readonly
                                                 value={{$company->longitude}}>
                                         </div>
                                         <div class="form-group col-md-6 col-12">
                                             <label>Latitude</label>
                                             <input type="number"
                                                 class="form-control"
+                                                readonly
                                                 value={{$company->latitude}}>
                                         </div>
                                     </div>
@@ -74,12 +76,14 @@
                                             <label>Time-In</label>
                                             <input type="text"
                                                 class="form-control"
+                                                readonly
                                                 value={{$company->time_in}}>
                                         </div>
                                         <div class="form-group col-md-6 col-12">
                                             <label>Time-Out</label>
                                             <input type="text"
                                                 class="form-control"
+                                                readonly
                                                 value={{$company->time_out}}>
                                         </div>
                                     </div>
@@ -91,7 +95,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer text-right">
-                                    <a href=#><button class="btn btn-primary">Edit Profile</button></a>
+                                    <a href="{{route('companies.edit', $company->id)}}"><button class="btn btn-primary">Edit Profile</button></a>
                                 </div>
 
                         </div>

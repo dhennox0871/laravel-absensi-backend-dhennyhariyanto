@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,5 +18,13 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('users',UserController::class);
 
     Route::resource('companies',CompanyController::class);
+
+    //edit company view edit
+    Route::get('companies/{id}/edit', [CompanyController::class, 'edit'])->name('company.show');
+
+    //company update
+    Route::put('companies/update', [CompanyController::class, 'update'])->name('company.update');
+    //attendance
+    Route::resource('attendances', AttendanceController::class);
 });
 
